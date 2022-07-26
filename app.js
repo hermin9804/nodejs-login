@@ -1,14 +1,16 @@
+"use strict"
+
+// 모듈
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => {
-	res.send("여기는 루트입니다.");
-});
+// 라우팅
+const home = require("./routes/home");
 
-app.get("/login", (req, res) => {
-	res.send("여기는 로그인입니다.");
-});
+// 앱 세팅
+app.set("views", "./views");
+app.set("view engine", "ejs");
 
-app.listen(3000, () => {
-	  console.log('Server is running on port 3000');
-});
+app.use("/", home); //use -> 미들웨어 등록해주는 메서드
+
+module.exports = app;
