@@ -9,7 +9,8 @@ class UserStorage {
 			db.query(query, [id], (err, data) => {
 				if (err)
 					reject(`${err}`);
-				resolve(data[0]);
+				else 
+					resolve(data[0]);
 			});
 		});
 	}
@@ -20,7 +21,8 @@ class UserStorage {
 			db.query(query, [userInfo.id, userInfo.name, userInfo.psword], (err) => {
 				if (err)
 					reject(`${err}`);
-				resolve({ success: true });
+				else
+					resolve({ success: true });
 			});
 		});
 	}
